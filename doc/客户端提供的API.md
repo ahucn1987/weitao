@@ -9,7 +9,7 @@
 首先，我们需要引用bridge.js,与主客户端通讯都是通过这个脚本的接口实现的。
 
 ```html
-<script src="http://g.tbcdn.cn/mtb/lib-windvane/1.1.12/??bridge.js,api.js"></script>
+<script src="http://g.tbcdn.cn/mtb/lib-windvane/1.1.12/bridge.js"></script>
 ```
 
 
@@ -136,7 +136,7 @@
 
 ## share
 
-调用分享组件
+调用分享组件。依赖`bridge.js`。
 
 ```html
 <script src="http://g.tbcdn.cn/mtb/lib-share/0.1.0/share.js"></script>
