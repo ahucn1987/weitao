@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <title>请使用淘宝客户端打开应用</title>
+    <script type="text/javascript" src="http://g.tbcdn.cn/mtb/lib-smartbanner/0.2.11/smartbanner.debug.js"></script>
+</head>
+<body>
+
+<div id="ua"></div>
+
+<script>
+//后端同学把相关信息以json的格式打印在这里
+var ActionInfo = {
+    title:"淘宝客户端不仅可以更流畅地收藏宝贝，还能分享，立刻下载体验！",
+    banner:"http://gtms01.alicdn.com/tps/i1/T1dZbNFfNcXXbHd2nf-456-176.jpg",
+    href:"a.m.taobao.com/i22206431996.htm"
+}
+</script>
+
+
+
+
+<script>
+(function(){
+    var scale = 1.0, ratio = 1;
+    var isIOS = (/iPhone|iPad|iPod|iTouch/i).test(navigator.userAgent);
+    var dpr = window.devicePixelRatio || 1;
+    var smartbanner = lib.smartbanner;
+
+    if (window.devicePixelRatio === 2 && window.navigator.appVersion.match(/iphone/gi)) {
+        scale = 0.5;
+        ratio = 2;
+    }
+
+    //smartbanner会记录关闭时间，用户关了就打不开，我们的场景是必须每次都打开
+    if(localStorage){
+        localStorage["closeDate"] = "";
+        localStorage["smpopCloseDate"] = "";
+    }
+
+    //打开pop
+    var pop = smartbanner({
+        type: 'pop',
+        href: ActionInfo.href,
+        title: ActionInfo.title,
+        banner: ActionInfo.banner,
+        dpr: ratio
+    });
+    pop.open();
+
+
+    //打开底部的banner
+    var banner = smartbanner({
+        type: 'banner',
+        href: ActionInfo.href,
+        title: '此活动必须运行在淘宝客户端中',
+        text: '进入活动',
+        dpr: ratio
+    });
+})();
+
+
+//临时看下UA
+document.getElementById('ua').innerHTML = navigator.userAgent;
+
+
+</script>
+
+
+</body>
+</html>

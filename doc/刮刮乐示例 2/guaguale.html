@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="gbk">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <title>guaguale</title>
+    <script src="http://g.tbcdn.cn/kissy/k/1.4.0/??seed.js,import-style.js" charset="utf-8" data-config="{combine:true}"></script>
+    <script>
+        KISSY.config({
+            packages: {
+                guaguale: {
+                    debug:true,
+                    combine:false,
+                    path: './assets/',
+                    tag: Math.random(),
+                    charset: 'gbk'
+                }
+            }
+        });
+    </script>
+</head>
+<body>
+
+<div class="gg-wrap">
+    <div class="gg-title"></div>
+    <div class="gg-container">
+        <canvas class="gg-canvas"> </canvas>
+    </div>
+</div>
+
+<script>
+    KISSY.use("guaguale/",function(S,GGL){
+        new GGL({
+            panel:".gg-container",
+            url:"interface.json"
+        });
+    })
+</script>
+
+</body>
+</html>
